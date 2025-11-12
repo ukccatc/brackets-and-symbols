@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive searchable glossary of coding symbols, brackets, and operators with correct English names. Learn the proper terminology for parentheses, braces, chevrons, and more.">
+    <meta name="keywords" content="coding symbols, programming brackets, parentheses, curly braces, angle brackets, coding glossary, programming terminology">
+    <meta name="author" content="ukccatc">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ukccatc.github.io/brackets-and-symbols/">
+    <meta property="og:title" content="Coding Symbols & Brackets Glossary">
+    <meta property="og:description" content="A comprehensive reference guide for programming symbols, brackets, and operators with their correct English names.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ukccatc.github.io/brackets-and-symbols/">
+    <meta property="twitter:title" content="Coding Symbols & Brackets Glossary">
+    <meta property="twitter:description" content="A comprehensive reference guide for programming symbols, brackets, and operators with their correct English names.">
+    
+    <title>Coding Symbols & Brackets Glossary | Programming Reference</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen transition-colors duration-200">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg border-b shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold">🔤 Coding Symbols & Brackets Glossary</h1>
+                    <p class="text-sm md:text-base mt-1 opacity-80">Your complete reference for programming symbols and their correct names</p>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-opacity-10 hover:bg-gray-500 transition-colors" aria-label="Toggle dark mode">
+                    <svg class="w-6 h-6 theme-icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="w-6 h-6 theme-icon-dark hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search symbols, names, or terms (e.g., 'curly', 'arrow', 'bracket')..." 
+                        class="w-full px-4 py-3 pl-12 rounded-lg border-2 focus:outline-none focus:ring-2 transition-all"
+                        aria-label="Search glossary"
+                    >
+                    <svg class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <p class="text-sm mt-2 opacity-70 text-center" id="search-results-count"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="py-4 border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3 text-sm md:text-base">
+                <a href="#brackets" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Brackets</a>
+                <a href="#quotes" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Quotes</a>
+                <a href="#math-logic" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Math & Logic</a>
+                <a href="#delimiters" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Delimiters</a>
+                <a href="#phrases" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Phrases</a>
+                <a href="#notes" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Notes</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Brackets Section -->
+        <section id="brackets" class="mb-12 section-content">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Brackets Family</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Parentheses -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="parentheses round brackets parens ( )">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">( )</div>
+                            <h3 class="font-semibold text-lg">Parentheses</h3>
+                            <p class="text-sm opacity-80 mt-1">Also: round brackets, parens</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="()" aria-label="Copy parentheses">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Common in function calls, mathematical expressions, and grouping</p>
+                </div>
+
+                <!-- Square Brackets -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="square brackets [ ]">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">[ ]</div>
+                            <h3 class="font-semibold text-lg">Square Brackets</h3>
+                            <p class="text-sm opacity-80 mt-1">Also: brackets</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="[]" aria-label="Copy square brackets">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Used for arrays, lists, and indexing in most languages</p>
+                </div>
+
+                <!-- Curly Braces -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="curly braces { } braces">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">{ }</div>
+                            <h3 class="font-semibold text-lg">Curly Braces</h3>
+                            <p class="text-sm opacity-80 mt-1">Also: braces</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="{}" aria-label="Copy curly braces">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Code blocks, object literals, scope delimiters</p>
+                    <p class="text-xs mt-1 opacity-70">⚠️ NOT "bracers" — that's armor!</p>
+                </div>
+
+                <!-- Angle Brackets -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="angle brackets chevrons < >">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">&lt; &gt;</div>
+                            <h3 class="font-semibold text-lg">Angle Brackets</h3>
+                            <p class="text-sm opacity-80 mt-1">Also: chevrons</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="<>" aria-label="Copy angle brackets">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">HTML tags, generics (TypeScript, C++), comparison operators</p>
+                </div>
+
+                <!-- Pipes -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="pipes vertical bars | ||">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">| |</div>
+                            <h3 class="font-semibold text-lg">Pipes</h3>
+                            <p class="text-sm opacity-80 mt-1">Vertical bars</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="||" aria-label="Copy pipes">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Single: bitwise OR, pipe operator | Double: logical OR || | Context-dependent usage</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quotes Section -->
+        <section id="quotes" class="mb-12 section-content">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Quotes & Strings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Double Quotes -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms='double quotes "'>
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">"</div>
+                            <h3 class="font-semibold text-lg">Double Quotes</h3>
+                            <p class="text-sm opacity-80 mt-1">Quotation marks</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy='"' aria-label="Copy double quotes">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">String literals in most languages, allows interpolation in some</p>
+                </div>
+
+                <!-- Single Quotes -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="single quotes apostrophe '">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">'</div>
+                            <h3 class="font-semibold text-lg">Single Quotes</h3>
+                            <p class="text-sm opacity-80 mt-1">Also: apostrophe</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="'" aria-label="Copy single quotes">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">String literals, characters (C/C++), possessives in text</p>
+                </div>
+
+                <!-- Backtick -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="backtick template literal `">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">`</div>
+                            <h3 class="font-semibold text-lg">Backtick</h3>
+                            <p class="text-sm opacity-80 mt-1">Grave accent</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="`" aria-label="Copy backtick">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Template literals in JavaScript, command substitution in shell</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Math & Logic Section -->
+        <section id="math-logic" class="mb-12 section-content">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Math & Logic Operators</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Plus -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="plus addition +">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">+</div>
+                            <h3 class="font-semibold text-lg">Plus</h3>
+                            <p class="text-sm opacity-80 mt-1">Addition operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="+" aria-label="Copy plus">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Arithmetic addition, string concatenation (some languages)</p>
+                </div>
+
+                <!-- Minus -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="minus subtraction hyphen dash -">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">-</div>
+                            <h3 class="font-semibold text-lg">Minus</h3>
+                            <p class="text-sm opacity-80 mt-1">Also: hyphen, dash (in text)</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="-" aria-label="Copy minus">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Subtraction, negation, hyphen in text/identifiers</p>
+                </div>
+
+                <!-- Asterisk -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="asterisk star multiplication *">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">*</div>
+                            <h3 class="font-semibold text-lg">Asterisk</h3>
+                            <p class="text-sm opacity-80 mt-1">Star</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="*" aria-label="Copy asterisk">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Multiplication, pointer dereference (C/C++), wildcard, spread/rest</p>
+                </div>
+
+                <!-- Slash -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="slash forward slash division /">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">/</div>
+                            <h3 class="font-semibold text-lg">Slash</h3>
+                            <p class="text-sm opacity-80 mt-1">Forward slash</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="/" aria-label="Copy slash">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Division, path separator, regex delimiter, comments (with another /)</p>
+                </div>
+
+                <!-- Percent -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="percent modulo remainder %">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">%</div>
+                            <h3 class="font-semibold text-lg">Percent</h3>
+                            <p class="text-sm opacity-80 mt-1">Modulo operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="%" aria-label="Copy percent">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Modulo/remainder operation, percentage in text, string formatting</p>
+                </div>
+
+                <!-- Caret -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="caret circumflex power ^">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">^</div>
+                            <h3 class="font-semibold text-lg">Caret</h3>
+                            <p class="text-sm opacity-80 mt-1">Circumflex</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="^" aria-label="Copy caret">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Bitwise XOR, exponentiation (some languages), regex anchor</p>
+                </div>
+
+                <!-- Double Asterisk -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="double asterisk exponentiation power **">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">**</div>
+                            <h3 class="font-semibold text-lg">Double Asterisk</h3>
+                            <p class="text-sm opacity-80 mt-1">Exponentiation</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="**" aria-label="Copy double asterisk">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Exponentiation operator (Python, JavaScript), power operation</p>
+                </div>
+
+                <!-- Equals -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="equals assignment =">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">=</div>
+                            <h3 class="font-semibold text-lg">Equals</h3>
+                            <p class="text-sm opacity-80 mt-1">Assignment operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="=" aria-label="Copy equals">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Assignment in most languages, equality in some contexts</p>
+                </div>
+
+                <!-- Double Equals -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="double equals equality comparison ==">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">==</div>
+                            <h3 class="font-semibold text-lg">Double Equals</h3>
+                            <p class="text-sm opacity-80 mt-1">Equality operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="==" aria-label="Copy double equals">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Equality comparison (loose in JavaScript, coerces types)</p>
+                </div>
+
+                <!-- Triple Equals -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="triple equals strict equality ===">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">===</div>
+                            <h3 class="font-semibold text-lg">Triple Equals</h3>
+                            <p class="text-sm opacity-80 mt-1">Strict equality</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="===" aria-label="Copy triple equals">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Strict equality in JavaScript (checks type and value)</p>
+                </div>
+
+                <!-- Not Equals -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="not equals inequality !=">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">!=</div>
+                            <h3 class="font-semibold text-lg">Not Equals</h3>
+                            <p class="text-sm opacity-80 mt-1">Inequality operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="!=" aria-label="Copy not equals">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Not equal comparison (loose in JavaScript)</p>
+                </div>
+
+                <!-- Strict Not Equals -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="strict not equals inequality !==">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">!==</div>
+                            <h3 class="font-semibold text-lg">Strict Not Equals</h3>
+                            <p class="text-sm opacity-80 mt-1">Strict inequality</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="!==" aria-label="Copy strict not equals">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Strict inequality in JavaScript (checks type and value)</p>
+                </div>
+
+                <!-- Logical AND -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="logical and ampersands &&">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">&&</div>
+                            <h3 class="font-semibold text-lg">Logical AND</h3>
+                            <p class="text-sm opacity-80 mt-1">Double ampersand</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="&&" aria-label="Copy logical AND">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Logical AND operator, short-circuit evaluation</p>
+                </div>
+
+                <!-- Logical OR -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="logical or pipes ||">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">||</div>
+                            <h3 class="font-semibold text-lg">Logical OR</h3>
+                            <p class="text-sm opacity-80 mt-1">Double pipe</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="||" aria-label="Copy logical OR">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Logical OR operator, short-circuit evaluation</p>
+                </div>
+
+                <!-- Logical NOT -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="logical not exclamation bang !">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">!</div>
+                            <h3 class="font-semibold text-lg">Logical NOT</h3>
+                            <p class="text-sm opacity-80 mt-1">Exclamation mark, bang</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="!" aria-label="Copy logical NOT">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Logical negation, boolean NOT, factorial (math), non-null assertion</p>
+                </div>
+
+                <!-- Ternary -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="ternary conditional question colon ?:">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">?:</div>
+                            <h3 class="font-semibold text-lg">Ternary Operator</h3>
+                            <p class="text-sm opacity-80 mt-1">Conditional operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="?:" aria-label="Copy ternary operator">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">condition ? trueValue : falseValue — inline conditional</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="arrow pointer ->">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">-&gt;</div>
+                            <h3 class="font-semibold text-lg">Arrow</h3>
+                            <p class="text-sm opacity-80 mt-1">Pointer access</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="->" aria-label="Copy arrow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Member access via pointer (C/C++), type annotations, transformations</p>
+                </div>
+
+                <!-- Fat Arrow -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="fat arrow lambda =>">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">=&gt;</div>
+                            <h3 class="font-semibold text-lg">Fat Arrow</h3>
+                            <p class="text-sm opacity-80 mt-1">Arrow function, lambda</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="=>" aria-label="Copy fat arrow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Arrow function in JavaScript/TypeScript, lambda expressions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delimiters Section -->
+        <section id="delimiters" class="mb-12 section-content">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Delimiters & Punctuation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Colon -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="colon :">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">:</div>
+                            <h3 class="font-semibold text-lg">Colon</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy=":" aria-label="Copy colon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Key-value separator (JSON, dicts), type annotations, labels, slice notation</p>
+                </div>
+
+                <!-- Semicolon -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="semicolon ;">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">;</div>
+                            <h3 class="font-semibold text-lg">Semicolon</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy=";" aria-label="Copy semicolon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Statement terminator (C, Java, JavaScript), command separator</p>
+                </div>
+
+                <!-- Comma -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="comma ,">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">,</div>
+                            <h3 class="font-semibold text-lg">Comma</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="," aria-label="Copy comma">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Separator for parameters, array elements, list items</p>
+                </div>
+
+                <!-- Dot/Period -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="dot period point .">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">.</div>
+                            <h3 class="font-semibold text-lg">Dot</h3>
+                            <p class="text-sm opacity-80 mt-1">Period, point</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="." aria-label="Copy dot">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Member access, decimal point, sentence terminator, wildcard (regex)</p>
+                </div>
+
+                <!-- Ellipsis -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="ellipsis spread rest three dots ...">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">...</div>
+                            <h3 class="font-semibold text-lg">Ellipsis</h3>
+                            <p class="text-sm opacity-80 mt-1">Spread/rest operator</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="..." aria-label="Copy ellipsis">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Spread syntax (JavaScript), rest parameters, continuation in text</p>
+                </div>
+
+                <!-- Hash -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="hash pound number sign octothorpe #">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">#</div>
+                            <h3 class="font-semibold text-lg">Hash</h3>
+                            <p class="text-sm opacity-80 mt-1">Pound, number sign, octothorpe</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="#" aria-label="Copy hash">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Comments (Python, shell), preprocessor (C), IDs/anchors, private fields</p>
+                </div>
+
+                <!-- At Sign -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="at sign @">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">@</div>
+                            <h3 class="font-semibold text-lg">At Sign</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="@" aria-label="Copy at sign">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Decorators (Python, TypeScript), annotations (Java), email addresses</p>
+                </div>
+
+                <!-- Underscore -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="underscore _">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">_</div>
+                            <h3 class="font-semibold text-lg">Underscore</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="_" aria-label="Copy underscore">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Word separator in identifiers (snake_case), placeholder, private convention</p>
+                </div>
+
+                <!-- Tilde -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="tilde ~">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">~</div>
+                            <h3 class="font-semibold text-lg">Tilde</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="~" aria-label="Copy tilde">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Bitwise NOT (C), home directory (Unix), approximation, version ranges</p>
+                </div>
+
+                <!-- Backslash -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="backslash escape \">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">\</div>
+                            <h3 class="font-semibold text-lg">Backslash</h3>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="\" aria-label="Copy backslash">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Escape character (\n, \t), path separator (Windows), line continuation</p>
+                </div>
+
+                <!-- Pipe -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="pipe vertical bar |">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">|</div>
+                            <h3 class="font-semibold text-lg">Pipe</h3>
+                            <p class="text-sm opacity-80 mt-1">Vertical bar</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="|" aria-label="Copy pipe">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Bitwise OR, pipe operator (shell), union types (TypeScript), alternation (regex)</p>
+                </div>
+
+                <!-- Ampersand -->
+                <div class="symbol-card p-4 rounded-lg border-2 hover:shadow-lg transition-all" data-terms="ampersand and &">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="text-3xl font-mono mb-2">&</div>
+                            <h3 class="font-semibold text-lg">Ampersand</h3>
+                            <p class="text-sm opacity-80 mt-1">And symbol</p>
+                        </div>
+                        <button class="copy-btn p-2 rounded hover:bg-opacity-10 hover:bg-gray-500 transition-colors" data-copy="&" aria-label="Copy ampersand">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-sm mt-2">Bitwise AND, reference operator (C++), background jobs (shell), HTML entities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phrases Section -->
+        <section id="phrases" class="mb-12 section-content">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Common Phrases & Terms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-lg border-2" data-terms="opening bracket closing bracket">
+                    <h3 class="font-semibold text-lg mb-2">Opening/Closing Bracket</h3>
+                    <p class="text-sm">The left symbol starts (opens) a pair; the right symbol ends (closes) it. Example: <span class="font-mono">(</span> is opening parenthesis, <span class="font-mono">)</span> is closing parenthesis.</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2" data-terms="brace delimited block">
+                    <h3 class="font-semibold text-lg mb-2">Brace-Delimited Block</h3>
+                    <p class="text-sm">A code block enclosed in curly braces <span class="font-mono">{ }</span>. Common in C-style languages for functions, loops, conditionals.</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2" data-terms="parenthesized expression">
+                    <h3 class="font-semibold text-lg mb-2">Parenthesized Expression</h3>
+                    <p class="text-sm">An expression wrapped in parentheses <span class="font-mono">( )</span> for grouping or precedence. Example: <span class="font-mono">(a + b) * c</span></p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2" data-terms="angle bracket syntax generics">
+                    <h3 class="font-semibold text-lg mb-2">Angle-Bracket Syntax</h3>
+                    <p class="text-sm">Using <span class="font-mono">&lt; &gt;</span> for generics, type parameters, or templates. Example: <span class="font-mono">Array&lt;number&gt;</span>, <span class="font-mono">&lt;div&gt;</span></p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2" data-terms="quote delimited string">
+                    <h3 class="font-semibold text-lg mb-2">Quote-Delimited String</h3>
+                    <p class="text-sm">A string literal enclosed in quotes (single, double, or backticks). The quotes delimit (mark the boundaries of) the string content.</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2" data-terms="square bracket notation">
+                    <h3 class="font-semibold text-lg mb-2">Square Bracket Notation</h3>
+                    <p class="text-sm">Using <span class="font-mono">[ ]</span> to access array/object elements or define arrays. Example: <span class="font-mono">arr[0]</span>, <span class="font-mono">[1, 2, 3]</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes Section -->
+        <section id="notes" class="mb-12 section-content">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Important Notes & Pitfalls</h2>
+            <div class="space-y-4">
+                <div class="p-4 rounded-lg border-2 border-yellow-500 bg-yellow-50 dark:bg-yellow-900 dark:bg-opacity-20" data-terms="brackets ambiguous">
+                    <h3 class="font-semibold text-lg mb-2">⚠️ "Brackets" is Ambiguous</h3>
+                    <p class="text-sm">In casual speech, "brackets" can refer to any paired delimiters. Be specific: use "parentheses", "square brackets", "curly braces", or "angle brackets" to avoid confusion.</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2 border-red-500 bg-red-50 dark:bg-red-900 dark:bg-opacity-20" data-terms="curly bracers wrong mistake">
+                    <h3 class="font-semibold text-lg mb-2">❌ "Curly Bracers" is WRONG</h3>
+                    <p class="text-sm">The correct term is "curly braces" or just "braces". "Bracers" are armor worn on the arms — not programming symbols! This is a common mistake.</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2 border-blue-500 bg-blue-50 dark:bg-blue-900 dark:bg-opacity-20" data-terms="hyphen dash minus">
+                    <h3 class="font-semibold text-lg mb-2">ℹ️ Hyphen vs. Minus</h3>
+                    <p class="text-sm">In text, <span class="font-mono">-</span> is called a "hyphen" or "dash" (e.g., "multi-line"). In code as an operator, it's "minus" (subtraction or negation). Context matters!</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2 border-green-500 bg-green-50 dark:bg-green-900 dark:bg-opacity-20" data-terms="context matters">
+                    <h3 class="font-semibold text-lg mb-2">✅ Context is Key</h3>
+                    <p class="text-sm">Many symbols have multiple meanings depending on context. <span class="font-mono">*</span> can be multiplication, pointer dereference, or a wildcard. <span class="font-mono">|</span> can be bitwise OR, logical OR, or a pipe operator. Always clarify based on usage.</p>
+                </div>
+
+                <div class="p-4 rounded-lg border-2 border-purple-500 bg-purple-50 dark:bg-purple-900 dark:bg-opacity-20" data-terms="regional differences">
+                    <h3 class="font-semibold text-lg mb-2">🌍 Regional Differences</h3>
+                    <p class="text-sm">Some terms vary by region. Americans often say "parentheses", while British speakers might say "brackets" for <span class="font-mono">( )</span>. For global clarity, use the most specific term or provide both names.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-80 mb-2">
+                Built with ❤️ for developers who want to communicate clearly about code
+            </p>
+            <p class="text-sm opacity-60">
+                <a href="https://github.com/ukccatc/brackets-and-symbols" class="hover:underline" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                <span class="mx-2">•</span>
+                <span id="build-date">2025</span>
+                <span class="mx-2">•</span>
+                <a href="https://github.com/ukccatc" class="hover:underline" target="_blank" rel="noopener noreferrer">@ukccatc</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
+
