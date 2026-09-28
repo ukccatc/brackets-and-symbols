@@ -135,8 +135,13 @@ nav a {
     transition: all 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a[aria-current="page"] {
     color: var(--accent-color);
+}
+
+nav a[aria-current="page"] {
+    font-weight: 600;
 }
 
 /* Footer */
@@ -351,9 +356,58 @@ input:focus {
     border-collapse: collapse;
 }
 
+/* One platform: each chord sits on the same line as its command. */
+html.platform-mac .shortcut-wrap,
+html.platform-win .shortcut-wrap {
+    width: 100%;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 html.platform-mac .shortcut-table,
-html.platform-win .shortcut-table {
+html.platform-win .shortcut-table,
+html.platform-mac .shortcut-table tbody,
+html.platform-win .shortcut-table tbody,
+html.platform-mac .shortcut-table tr,
+html.platform-win .shortcut-table tr {
+    display: block;
+    width: auto;
     min-width: 0;
+    max-width: 100%;
+}
+
+html.platform-mac .shortcut-table thead,
+html.platform-win .shortcut-table thead {
+    display: none;
+}
+
+html.platform-mac tr.shortcut-row,
+html.platform-win tr.shortcut-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.75rem;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+html.platform-mac tr.shortcut-row > th,
+html.platform-win tr.shortcut-row > th,
+html.platform-mac tr.shortcut-row > td,
+html.platform-win tr.shortcut-row > td,
+html.platform-mac tr.section-label > th,
+html.platform-win tr.section-label > th {
+    display: block;
+    width: auto;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+html.platform-mac tr.section-label > th,
+html.platform-win tr.section-label > th {
+    padding: 1.25rem 1rem 0.35rem;
 }
 
 .shortcut-table th,
@@ -372,15 +426,17 @@ html.platform-win .shortcut-table {
 
 .shortcut-table kbd {
     display: inline-block;
-    margin: 0.125rem 0.25rem 0.125rem 0;
-    padding: 0.1rem 0.4rem;
+    margin: 0.15rem 0.35rem 0.15rem 0;
+    padding: 0.2rem 0.55rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85em;
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.4;
     white-space: nowrap;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 0.25rem;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 0.35rem;
 }
 
 .shortcut-footnote {
@@ -391,8 +447,10 @@ html.platform-win .shortcut-table {
     color: var(--text-secondary);
 }
 
-html.platform-mac .col-win,
-html.platform-win .col-mac {
+html.platform-mac tr.shortcut-row > td.col-win,
+html.platform-win tr.shortcut-row > td.col-mac,
+html.platform-mac thead .col-win,
+html.platform-win thead .col-mac {
     display: none;
 }
 

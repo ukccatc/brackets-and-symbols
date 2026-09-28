@@ -57,7 +57,9 @@
     <nav class="py-4 border-b">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-3 text-sm md:text-base">
-                <a href="index.html" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Glossary</a>
+                <a href="index.html" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Home</a>
+                <a href="symbols.html" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Symbols</a>
+                <a href="shortcuts.html" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors" aria-current="page">Shortcuts</a>
                 <a href="#general" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">General</a>
                 <a href="#editing" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Editing</a>
                 <a href="#navigation" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Navigation</a>
@@ -293,6 +295,11 @@
                 document.documentElement.classList.add('platform-' + name);
                 buttons.forEach(function (button) {
                     button.setAttribute('aria-pressed', button.getAttribute('data-platform') === name ? 'true' : 'false');
+                });
+                // A hidden platform column must not leave an empty span in section titles.
+                var span = name === 'both' ? 3 : 2;
+                document.querySelectorAll('.section-label th').forEach(function (cell) {
+                    cell.colSpan = span;
                 });
             }
 
