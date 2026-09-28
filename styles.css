@@ -57,18 +57,21 @@ header {
 }
 
 /* Search Input */
-#search-input {
+#search-input,
+#shortcut-search {
     background-color: var(--bg-card);
     border-color: var(--border-color);
     color: var(--text-primary);
 }
 
-#search-input:focus {
+#search-input:focus,
+#shortcut-search:focus {
     border-color: var(--accent-color);
     ring-color: var(--accent-color);
 }
 
-#search-input::placeholder {
+#search-input::placeholder,
+#shortcut-search::placeholder {
     color: var(--text-secondary);
 }
 
@@ -310,6 +313,102 @@ input:focus {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* Shortcuts page: one command list, platform columns from the same tokens */
+.platform-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.platform-switch button {
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+}
+
+.platform-switch button[aria-pressed="true"] {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.shortcut-wrap {
+    overflow-x: auto;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--bg-card);
+}
+
+.shortcut-table {
+    width: 100%;
+    min-width: 40rem;
+    border-collapse: collapse;
+}
+
+html.platform-mac .shortcut-table,
+html.platform-win .shortcut-table {
+    min-width: 0;
+}
+
+.shortcut-table th,
+.shortcut-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.shortcut-table .section-label th {
+    font-size: 1.25rem;
+    padding-top: 1.5rem;
+    background-color: var(--bg-primary);
+}
+
+.shortcut-table kbd {
+    display: inline-block;
+    margin: 0.125rem 0.25rem 0.125rem 0;
+    padding: 0.1rem 0.4rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    line-height: 1.4;
+    white-space: nowrap;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+}
+
+.shortcut-footnote {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+html.platform-mac .col-win,
+html.platform-win .col-mac {
+    display: none;
+}
+
+html.platform-mac .col-mac,
+html.platform-win .col-win {
+    background-color: var(--bg-secondary);
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+
+    html.platform-mac .col-win,
+    html.platform-win .col-mac {
+        display: table-cell;
     }
 }
 

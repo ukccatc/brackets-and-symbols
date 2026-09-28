@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visual Studio Code default keyboard shortcuts. One command list with Windows and macOS chords side by side.">
+    <title>VS Code Keyboard Shortcuts | Windows and macOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen transition-colors duration-200">
+    <header class="sticky top-0 z-50 backdrop-blur-lg border-b shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold">VS Code Keyboard Shortcuts</h1>
+                    <p class="text-sm md:text-base mt-1 opacity-80">Same commands for Windows and macOS. Chords follow the current official cheat sheets.</p>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-opacity-10 hover:bg-gray-500 transition-colors" aria-label="Toggle dark mode">
+                    <svg class="w-6 h-6 theme-icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="w-6 h-6 theme-icon-dark hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-8 no-print">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input
+                        type="text"
+                        id="shortcut-search"
+                        placeholder="Search a command or chord (e.g. replace, fold, ⌘P)..."
+                        class="w-full px-4 py-3 pl-12 rounded-lg border-2 focus:outline-none focus:ring-2 transition-all"
+                        aria-label="Search shortcuts"
+                    >
+                    <svg class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <p class="text-sm mt-2 opacity-70 text-center" id="shortcut-count"></p>
+                <div class="platform-switch mt-4" role="group" aria-label="Which platform chords to show">
+                    <button type="button" data-platform="mac" aria-pressed="false">macOS</button>
+                    <button type="button" data-platform="win" aria-pressed="false">Windows</button>
+                    <button type="button" data-platform="both" aria-pressed="false">Both</button>
+                </div>
+                <p class="text-sm mt-3 opacity-70 text-center">macOS: ⌘ Command, ⌥ Option, ⌃ Control, ⇧ Shift</p>
+            </div>
+        </div>
+    </section>
+
+    <nav class="py-4 border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-3 text-sm md:text-base">
+                <a href="index.html" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Glossary</a>
+                <a href="#general" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">General</a>
+                <a href="#editing" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Editing</a>
+                <a href="#navigation" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Navigation</a>
+                <a href="#search-replace" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Search</a>
+                <a href="#selection" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Selection</a>
+                <a href="#languages" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Languages</a>
+                <a href="#editors" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Editors</a>
+                <a href="#files" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Files</a>
+                <a href="#display" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Display</a>
+                <a href="#debug" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Debug</a>
+                <a href="#terminal" class="px-3 py-1 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors">Terminal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="shortcut-wrap">
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Command</th>
+                        <th scope="col" class="col-win">Windows</th>
+                        <th scope="col" class="col-mac">macOS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="general" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">General</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Command Palette</th><td class="col-win"><kbd>Ctrl+Shift+P</kbd><kbd>F1</kbd></td><td class="col-mac"><kbd>⇧⌘P</kbd><kbd>F1</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Quick Open, Go to File…</th><td class="col-win"><kbd>Ctrl+P</kbd></td><td class="col-mac"><kbd>⌘P</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">New window/instance</th><td class="col-win"><kbd>Ctrl+Shift+N</kbd></td><td class="col-mac"><kbd>⇧⌘N</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Close window/instance</th><td class="col-win"><kbd>Ctrl+Shift+W</kbd></td><td class="col-mac"><kbd>⌘W</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">User Settings</th><td class="col-win"><kbd>Ctrl+,</kbd></td><td class="col-mac"><kbd>⌘,</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Keyboard Shortcuts</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+S</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘S</kbd></td></tr>
+                </tbody>
+
+                <tbody id="editing" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Basic editing</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Cut line (empty selection)</th><td class="col-win"><kbd>Ctrl+X</kbd></td><td class="col-mac"><kbd>⌘X</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Copy line (empty selection)</th><td class="col-win"><kbd>Ctrl+C</kbd></td><td class="col-mac"><kbd>⌘C</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Move line up/down</th><td class="col-win"><kbd>Alt+↑</kbd><kbd>Alt+↓</kbd></td><td class="col-mac"><kbd>⌥↓</kbd><kbd>⌥↑</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Copy line up/down</th><td class="col-win"><kbd>Shift+Alt+↓</kbd><kbd>Shift+Alt+↑</kbd></td><td class="col-mac"><kbd>⇧⌥↓</kbd><kbd>⇧⌥↑</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Delete line</th><td class="col-win"><kbd>Ctrl+Shift+K</kbd></td><td class="col-mac"><kbd>⇧⌘K</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Insert line below</th><td class="col-win"><kbd>Ctrl+Enter</kbd></td><td class="col-mac"><kbd>⌘Enter</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Insert line above</th><td class="col-win"><kbd>Ctrl+Shift+Enter</kbd></td><td class="col-mac"><kbd>⇧⌘Enter</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Jump to matching bracket</th><td class="col-win"><kbd>Ctrl+Shift+\</kbd></td><td class="col-mac"><kbd>⇧⌘\</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Indent/outdent line</th><td class="col-win"><kbd>Ctrl+]</kbd><kbd>Ctrl+[</kbd></td><td class="col-mac"><kbd>⌘]</kbd><kbd>⌘[</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to beginning/end of line</th><td class="col-win"><kbd>Home</kbd><kbd>End</kbd></td><td class="col-mac"><kbd>Home</kbd><kbd>End</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to beginning of file</th><td class="col-win"><kbd>Ctrl+Home</kbd></td><td class="col-mac"><kbd>⌘↑</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to end of file</th><td class="col-win"><kbd>Ctrl+End</kbd></td><td class="col-mac"><kbd>⌘↓</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Scroll line up/down</th><td class="col-win"><kbd>Ctrl+↑</kbd><kbd>Ctrl+↓</kbd></td><td class="col-mac"><kbd>⌃PgUp</kbd><kbd>⌃PgDn</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Scroll page up/down</th><td class="col-win"><kbd>Alt+PgUp</kbd><kbd>Alt+PgDn</kbd></td><td class="col-mac"><kbd>⌘PgUp</kbd><kbd>⌘PgDn</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Fold (collapse) region</th><td class="col-win"><kbd>Ctrl+Shift+[</kbd></td><td class="col-mac"><kbd>⌥⌘[</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Unfold (uncollapse) region</th><td class="col-win"><kbd>Ctrl+Shift+]</kbd></td><td class="col-mac"><kbd>⌥⌘]</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Fold (collapse) all subregions</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+[</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘[</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Unfold (uncollapse) all subregions</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+]</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘]</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Fold (collapse) all regions</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+0</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘0</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Unfold (uncollapse) all regions</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+J</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘J</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Add line comment</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+C</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘C</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Remove line comment</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+U</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘U</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle line comment</th><td class="col-win"><kbd>Ctrl+/</kbd></td><td class="col-mac"><kbd>⌘/</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle block comment</th><td class="col-win"><kbd>Shift+Alt+A</kbd></td><td class="col-mac"><kbd>⇧⌥A</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle word wrap</th><td class="col-win"><kbd>Alt+Z</kbd></td><td class="col-mac"><kbd>⌥Z</kbd></td></tr>
+                </tbody>
+
+                <tbody id="navigation" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Navigation</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Show all Symbols</th><td class="col-win"><kbd>Ctrl+T</kbd></td><td class="col-mac"><kbd>⌘T</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to Line...</th><td class="col-win"><kbd>Ctrl+G</kbd></td><td class="col-mac"><kbd>⌃G</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to File...</th><td class="col-win"><kbd>Ctrl+P</kbd></td><td class="col-mac"><kbd>⌘P</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to Symbol...</th><td class="col-win"><kbd>Ctrl+Shift+O</kbd></td><td class="col-mac"><kbd>⇧⌘O</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Problems panel</th><td class="col-win"><kbd>Ctrl+Shift+M</kbd></td><td class="col-mac"><kbd>⇧⌘M</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to next error or warning</th><td class="col-win"><kbd>F8</kbd></td><td class="col-mac"><kbd>F8</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to previous error or warning</th><td class="col-win"><kbd>Shift+F8</kbd></td><td class="col-mac"><kbd>⇧F8</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Navigate editor group history</th><td class="col-win"><kbd>Ctrl+Shift+Tab</kbd></td><td class="col-mac"><kbd>⌃⇧Tab</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go back / forward</th><td class="col-win"><kbd>Alt+←</kbd><kbd>Alt+→</kbd></td><td class="col-mac"><kbd>⌃-</kbd><kbd>⌃⇧-</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle Tab moves focus</th><td class="col-win"><kbd>Ctrl+M</kbd></td><td class="col-mac"><kbd>⌃⇧M</kbd></td></tr>
+                </tbody>
+
+                <tbody id="search-replace" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Search and replace</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Find</th><td class="col-win"><kbd>Ctrl+F</kbd></td><td class="col-mac"><kbd>⌘F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Replace</th><td class="col-win"><kbd>Ctrl+H</kbd></td><td class="col-mac"><kbd>⌥⌘F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Find next/previous</th><td class="col-win"><kbd>F3</kbd><kbd>Shift+F3</kbd></td><td class="col-mac"><kbd>⌘G</kbd><kbd>⇧⌘G</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Select all occurrences of Find match</th><td class="col-win"><kbd>Alt+Enter</kbd></td><td class="col-mac"><kbd>⌥Enter</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Add selection to next Find match</th><td class="col-win"><kbd>Ctrl+D</kbd></td><td class="col-mac"><kbd>⌘D</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Move last selection to next Find match</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+D</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘D</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle case-sensitive / regex / whole word<span class="shortcut-footnote">While the find box is focused. macOS chord is the editor default; the macOS cheat sheet omits it.</span></th><td class="col-win"><kbd>Alt+C</kbd><kbd>Alt+R</kbd><kbd>Alt+W</kbd></td><td class="col-mac"><kbd>⌥⌘C</kbd><kbd>⌥⌘R</kbd><kbd>⌥⌘W</kbd></td></tr>
+                </tbody>
+
+                <tbody id="selection" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Multi-cursor and selection</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Insert cursor</th><td class="col-win"><kbd>Alt+Click</kbd></td><td class="col-mac"><kbd>⌥+click</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Insert cursor above / below</th><td class="col-win"><kbd>Ctrl+Alt+↑</kbd><kbd>Ctrl+Alt+↓</kbd></td><td class="col-mac"><kbd>⌥⌘↑</kbd><kbd>⌥⌘↓</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Undo last cursor operation</th><td class="col-win"><kbd>Ctrl+U</kbd></td><td class="col-mac"><kbd>⌘U</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Insert cursor at end of each line selected</th><td class="col-win"><kbd>Shift+Alt+I</kbd></td><td class="col-mac"><kbd>⇧⌥I</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Select current line</th><td class="col-win"><kbd>Ctrl+L</kbd></td><td class="col-mac"><kbd>⌘L</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Select all occurrences of current selection</th><td class="col-win"><kbd>Ctrl+Shift+L</kbd></td><td class="col-mac"><kbd>⇧⌘L</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Select all occurrences of current word</th><td class="col-win"><kbd>Ctrl+F2</kbd></td><td class="col-mac"><kbd>⌘F2</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Expand selection</th><td class="col-win"><kbd>Shift+Alt+→</kbd></td><td class="col-mac"><kbd>⌃⇧⌘→</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Shrink selection</th><td class="col-win"><kbd>Shift+Alt+←</kbd></td><td class="col-mac"><kbd>⌃⇧⌘←</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Column (box) selection</th><td class="col-win"><kbd>Shift+Alt+drag</kbd></td><td class="col-mac"><kbd>⇧⌥+drag</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Column (box) selection with arrow keys</th><td class="col-win"><kbd>Ctrl+Shift+Alt+arrow</kbd></td><td class="col-mac"><kbd>⇧⌥⌘+arrow</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Column (box) selection page up/down</th><td class="col-win"><kbd>Ctrl+Shift+Alt+PgUp</kbd><kbd>Ctrl+Shift+Alt+PgDn</kbd></td><td class="col-mac"><kbd>⇧⌥⌘PgUp</kbd><kbd>⇧⌥⌘PgDn</kbd></td></tr>
+                </tbody>
+
+                <tbody id="languages" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Rich languages editing</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Trigger suggestion</th><td class="col-win"><kbd>Ctrl+Space</kbd><kbd>Ctrl+I</kbd></td><td class="col-mac"><kbd>⌃Space</kbd><kbd>⌘I</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Trigger parameter hints</th><td class="col-win"><kbd>Ctrl+Shift+Space</kbd></td><td class="col-mac"><kbd>⇧⌘Space</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Format document</th><td class="col-win"><kbd>Shift+Alt+F</kbd></td><td class="col-mac"><kbd>⇧⌥F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Format selection</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+F</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Go to Definition</th><td class="col-win"><kbd>F12</kbd></td><td class="col-mac"><kbd>F12</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Peek Definition</th><td class="col-win"><kbd>Alt+F12</kbd></td><td class="col-mac"><kbd>⌥F12</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Open Definition to the side</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>F12</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>F12</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Quick Fix</th><td class="col-win"><kbd>Ctrl+.</kbd></td><td class="col-mac"><kbd>⌘.</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show References</th><td class="col-win"><kbd>Shift+F12</kbd></td><td class="col-mac"><kbd>⇧F12</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Rename Symbol</th><td class="col-win"><kbd>F2</kbd></td><td class="col-mac"><kbd>F2</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Trim trailing whitespace</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+X</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘X</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Change file language</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>M</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>M</kbd></td></tr>
+                </tbody>
+
+                <tbody id="editors" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Editor management</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Close editor</th><td class="col-win"><kbd>Ctrl+F4</kbd><kbd>Ctrl+W</kbd></td><td class="col-mac"><kbd>⌘W</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Close folder</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>F</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Split editor</th><td class="col-win"><kbd>Ctrl+\</kbd></td><td class="col-mac"><kbd>⌘\</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Focus into 1st, 2nd or 3rd editor group</th><td class="col-win"><kbd>Ctrl+1</kbd><kbd>Ctrl+2</kbd><kbd>Ctrl+3</kbd></td><td class="col-mac"><kbd>⌘1</kbd><kbd>⌘2</kbd><kbd>⌘3</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Focus into previous/next editor group</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+←</kbd><kbd>Ctrl+K</kbd><kbd>Ctrl+→</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘←</kbd><kbd>⌘K</kbd><kbd>⌘→</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Move editor left/right</th><td class="col-win"><kbd>Ctrl+Shift+PgUp</kbd><kbd>Ctrl+Shift+PgDn</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⇧⌘←</kbd><kbd>⌘K</kbd><kbd>⇧⌘→</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Move active editor group</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>←</kbd><kbd>Ctrl+K</kbd><kbd>→</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>←</kbd><kbd>⌘K</kbd><kbd>→</kbd></td></tr>
+                </tbody>
+
+                <tbody id="files" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">File management</th></tr>
+                    <tr class="shortcut-row"><th scope="row">New File</th><td class="col-win"><kbd>Ctrl+N</kbd></td><td class="col-mac"><kbd>⌘N</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Open File...</th><td class="col-win"><kbd>Ctrl+O</kbd></td><td class="col-mac"><kbd>⌘O</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Save</th><td class="col-win"><kbd>Ctrl+S</kbd></td><td class="col-mac"><kbd>⌘S</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Save As...</th><td class="col-win"><kbd>Ctrl+Shift+S</kbd></td><td class="col-mac"><kbd>⇧⌘S</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Save All</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>S</kbd></td><td class="col-mac"><kbd>⌥⌘S</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Close</th><td class="col-win"><kbd>Ctrl+F4</kbd></td><td class="col-mac"><kbd>⌘W</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Close All</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+W</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘W</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Reopen closed editor</th><td class="col-win"><kbd>Ctrl+Shift+T</kbd></td><td class="col-mac"><kbd>⇧⌘T</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Keep preview mode editor open</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Enter</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>Enter</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Open next</th><td class="col-win"><kbd>Ctrl+Tab</kbd></td><td class="col-mac"><kbd>⌃Tab</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Open previous</th><td class="col-win"><kbd>Ctrl+Shift+Tab</kbd></td><td class="col-mac"><kbd>⌃⇧Tab</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Copy path of active file</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>P</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>P</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Reveal active file in Explorer / Finder</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>R</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>R</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show active file in new window/instance</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>O</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>O</kbd></td></tr>
+                </tbody>
+
+                <tbody id="display" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Display</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle full screen</th><td class="col-win"><kbd>F11</kbd></td><td class="col-mac"><kbd>⌃⌘F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle editor layout (horizontal/vertical)</th><td class="col-win"><kbd>Shift+Alt+0</kbd></td><td class="col-mac"><kbd>⌥⌘0</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Zoom in/out</th><td class="col-win"><kbd>Ctrl+=</kbd><kbd>Ctrl+-</kbd></td><td class="col-mac"><kbd>⌘=</kbd><kbd>⇧⌘-</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle Sidebar visibility</th><td class="col-win"><kbd>Ctrl+B</kbd></td><td class="col-mac"><kbd>⌘B</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Explorer / Toggle focus</th><td class="col-win"><kbd>Ctrl+Shift+E</kbd></td><td class="col-mac"><kbd>⇧⌘E</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Search</th><td class="col-win"><kbd>Ctrl+Shift+F</kbd></td><td class="col-mac"><kbd>⇧⌘F</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Source Control</th><td class="col-win"><kbd>Ctrl+Shift+G</kbd></td><td class="col-mac"><kbd>⌃⇧G</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Debug</th><td class="col-win"><kbd>Ctrl+Shift+D</kbd></td><td class="col-mac"><kbd>⇧⌘D</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Extensions</th><td class="col-win"><kbd>Ctrl+Shift+X</kbd></td><td class="col-mac"><kbd>⇧⌘X</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Replace in files</th><td class="col-win"><kbd>Ctrl+Shift+H</kbd></td><td class="col-mac"><kbd>⇧⌘H</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle Search details</th><td class="col-win"><kbd>Ctrl+Shift+J</kbd></td><td class="col-mac"><kbd>⇧⌘J</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show Output panel</th><td class="col-win"><kbd>Ctrl+Shift+U</kbd></td><td class="col-mac"><kbd>⇧⌘U</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Open Markdown preview</th><td class="col-win"><kbd>Ctrl+Shift+V</kbd></td><td class="col-mac"><kbd>⇧⌘V</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Open Markdown preview to the side</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>V</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>V</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Zen Mode (Esc Esc to exit)</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Z</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>Z</kbd></td></tr>
+                </tbody>
+
+                <tbody id="debug" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Debug</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Toggle breakpoint</th><td class="col-win"><kbd>F9</kbd></td><td class="col-mac"><kbd>F9</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Start/Continue</th><td class="col-win"><kbd>F5</kbd></td><td class="col-mac"><kbd>F5</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Stop</th><td class="col-win"><kbd>Shift+F5</kbd></td><td class="col-mac"><kbd>⇧F5</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Step into/out</th><td class="col-win"><kbd>F11</kbd><kbd>Shift+F11</kbd></td><td class="col-mac"><kbd>F11</kbd><kbd>⇧F11</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Step over</th><td class="col-win"><kbd>F10</kbd></td><td class="col-mac"><kbd>F10</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Show hover</th><td class="col-win"><kbd>Ctrl+K</kbd><kbd>Ctrl+I</kbd></td><td class="col-mac"><kbd>⌘K</kbd><kbd>⌘I</kbd></td></tr>
+                </tbody>
+
+                <tbody id="terminal" class="shortcut-section">
+                    <tr class="section-label"><th colspan="3" scope="colgroup">Integrated terminal</th></tr>
+                    <tr class="shortcut-row"><th scope="row">Show integrated terminal</th><td class="col-win"><kbd>Ctrl+`</kbd></td><td class="col-mac"><kbd>⌃`</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Create new terminal</th><td class="col-win"><kbd>Ctrl+Shift+`</kbd></td><td class="col-mac"><kbd>⌃⇧`</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Copy selection</th><td class="col-win"><kbd>Ctrl+C</kbd></td><td class="col-mac"><kbd>⌘C</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Paste into active terminal<span class="shortcut-footnote">macOS chord is the editor default; the macOS cheat sheet omits it.</span></th><td class="col-win"><kbd>Ctrl+V</kbd></td><td class="col-mac"><kbd>⌘V</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Scroll up/down</th><td class="col-win"><kbd>Ctrl+↑</kbd><kbd>Ctrl+↓</kbd></td><td class="col-mac"><kbd>⌘↑</kbd><kbd>⌘↓</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Scroll page up/down</th><td class="col-win"><kbd>Shift+PgUp</kbd><kbd>Shift+PgDn</kbd></td><td class="col-mac"><kbd>PgUp</kbd><kbd>PgDn</kbd></td></tr>
+                    <tr class="shortcut-row"><th scope="row">Scroll to top/bottom</th><td class="col-win"><kbd>Ctrl+Home</kbd><kbd>Ctrl+End</kbd></td><td class="col-mac"><kbd>⌘Home</kbd><kbd>⌘End</kbd></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-sm mt-4 opacity-70">Defaults from the official Visual Studio Code cheat sheets. Your own keybindings are not listed. <a class="hover:underline" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows PDF</a> · <a class="hover:underline" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS PDF</a></p>
+    </main>
+
+    <footer class="border-t py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-80 mb-2">
+                Built with ❤️ for developers who want to communicate clearly about code
+            </p>
+            <p class="text-sm opacity-60">
+                <a href="https://github.com/ukccatc/brackets-and-symbols" class="hover:underline" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                <span class="mx-2">•</span>
+                <span id="build-date">2025</span>
+                <span class="mx-2">•</span>
+                <a href="https://github.com/ukccatc" class="hover:underline" target="_blank" rel="noopener noreferrer">@ukccatc</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        (function () {
+            var input = document.getElementById('shortcut-search');
+            var countEl = document.getElementById('shortcut-count');
+            var rows = Array.prototype.slice.call(document.querySelectorAll('tr.shortcut-row'));
+            var sections = Array.prototype.slice.call(document.querySelectorAll('tbody.shortcut-section'));
+            var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-platform]'));
+
+            function detectedPlatform() {
+                var ua = navigator.userAgent || '';
+                if (/Windows/.test(ua)) {
+                    return 'win';
+                }
+                if (/Mac/.test(ua)) {
+                    return 'mac';
+                }
+                return 'both';
+            }
+
+            function setPlatform(name) {
+                document.documentElement.classList.remove('platform-mac', 'platform-win', 'platform-both');
+                document.documentElement.classList.add('platform-' + name);
+                buttons.forEach(function (button) {
+                    button.setAttribute('aria-pressed', button.getAttribute('data-platform') === name ? 'true' : 'false');
+                });
+            }
+
+            function normalize(value) {
+                return value.toLowerCase()
+                    .replace(/⌘/g, ' cmd command ')
+                    .replace(/⌥/g, ' option alt ')
+                    .replace(/⌃/g, ' ctrl control ')
+                    .replace(/⇧/g, ' shift ');
+            }
+
+            function applyFilter() {
+                var tokens = normalize(input.value).split(/\s+/).filter(Boolean);
+                var visible = 0;
+
+                rows.forEach(function (row) {
+                    var hay = normalize(row.textContent);
+                    var show = tokens.every(function (token) {
+                        return hay.indexOf(token) !== -1;
+                    });
+                    row.hidden = !show;
+                    if (show) {
+                        visible += 1;
+                    }
+                });
+
+                sections.forEach(function (section) {
+                    section.hidden = !section.querySelector('tr.shortcut-row:not([hidden])');
+                });
+
+                if (!tokens.length) {
+                    countEl.textContent = '';
+                    countEl.classList.remove('text-red-500');
+                    return;
+                }
+
+                if (visible === 0) {
+                    countEl.textContent = 'No commands found.';
+                    countEl.classList.add('text-red-500');
+                    return;
+                }
+
+                countEl.textContent = 'Found ' + visible + (visible === 1 ? ' command' : ' commands');
+                countEl.classList.remove('text-red-500');
+            }
+
+            setPlatform(detectedPlatform());
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    setPlatform(button.getAttribute('data-platform'));
+                });
+            });
+
+            var searchTimeout;
+            input.addEventListener('input', function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(applyFilter, 200);
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+                    event.preventDefault();
+                    input.focus();
+                }
+                if (event.key === 'Escape' && document.activeElement === input) {
+                    input.value = '';
+                    applyFilter();
+                    input.blur();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
