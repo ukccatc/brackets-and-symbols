@@ -321,7 +321,7 @@ input:focus {
     }
 }
 
-/* Shortcuts page: one command list, platform columns from the same tokens */
+/* Shortcuts sheet: dense columns, chord on the left, command on the right. */
 .platform-switch {
     display: flex;
     flex-wrap: wrap;
@@ -344,104 +344,127 @@ input:focus {
 }
 
 .shortcut-wrap {
-    overflow-x: auto;
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
-    background-color: var(--bg-card);
-}
-
-.shortcut-table {
-    width: 100%;
-    min-width: 40rem;
-    border-collapse: collapse;
-}
-
-/* One platform: each chord sits on the same line as its command. */
-html.platform-mac .shortcut-wrap,
-html.platform-win .shortcut-wrap {
-    width: 100%;
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-html.platform-mac .shortcut-table,
-html.platform-win .shortcut-table,
-html.platform-mac .shortcut-table tbody,
-html.platform-win .shortcut-table tbody,
-html.platform-mac .shortcut-table tr,
-html.platform-win .shortcut-table tr {
-    display: block;
-    width: auto;
-    min-width: 0;
-    max-width: 100%;
-}
-
-html.platform-mac .shortcut-table thead,
-html.platform-win .shortcut-table thead {
-    display: none;
-}
-
-html.platform-mac tr.shortcut-row,
-html.platform-win tr.shortcut-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.35rem 0.75rem;
-    padding: 0.7rem 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-html.platform-mac tr.shortcut-row > th,
-html.platform-win tr.shortcut-row > th,
-html.platform-mac tr.shortcut-row > td,
-html.platform-win tr.shortcut-row > td,
-html.platform-mac tr.section-label > th,
-html.platform-win tr.section-label > th {
-    display: block;
-    width: auto;
-    padding: 0;
+    overflow: visible;
     border: none;
+    border-radius: 0;
     background-color: transparent;
 }
 
-html.platform-mac tr.section-label > th,
-html.platform-win tr.section-label > th {
-    padding: 1.25rem 1rem 0.35rem;
+.shortcut-table {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
 }
 
+html.platform-both .shortcut-table {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.shortcut-table thead {
+    display: none;
+}
+
+.shortcut-table tbody {
+    display: block;
+    min-width: 0;
+}
+
+.shortcut-table tr,
 .shortcut-table th,
 .shortcut-table td {
-    padding: 0.75rem 1rem;
+    display: block;
+}
+
+tr.section-label th {
+    padding: 0.85rem 0.15rem 0.2rem;
+    font-size: 1rem;
+    font-weight: 700;
     text-align: left;
-    vertical-align: top;
+    background-color: transparent;
+    border: none;
     border-bottom: 1px solid var(--border-color);
 }
 
-.shortcut-table .section-label th {
-    font-size: 1.25rem;
-    padding-top: 1.5rem;
-    background-color: var(--bg-primary);
+tr.shortcut-row {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 10rem) minmax(6.5rem, 10rem) minmax(6rem, 1fr);
+    align-items: stretch;
+    column-gap: 0.35rem;
+}
+
+tr.shortcut-row > td.col-win {
+    grid-column: 1;
+}
+
+tr.shortcut-row > td.col-mac {
+    grid-column: 2;
+}
+
+tr.shortcut-row > th {
+    grid-column: 3;
+}
+
+html.platform-mac tr.shortcut-row {
+    grid-template-columns: 8.25rem minmax(0, 1fr);
+}
+
+html.platform-win tr.shortcut-row {
+    grid-template-columns: 11rem minmax(0, 1fr);
+}
+
+html.platform-mac tr.shortcut-row > td.col-mac,
+html.platform-win tr.shortcut-row > td.col-win {
+    grid-column: 1;
+}
+
+html.platform-mac tr.shortcut-row > th,
+html.platform-win tr.shortcut-row > th {
+    grid-column: 2;
+}
+
+tr.shortcut-row > th,
+tr.shortcut-row > td {
+    padding: 0.28rem 0.4rem;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    font-weight: 400;
+}
+
+tr.shortcut-row > td {
+    background-color: var(--bg-secondary);
+    font-weight: 600;
+}
+
+tr.shortcut-row:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+tr.shortcut-row:nth-child(odd) > th {
+    background-color: var(--bg-card);
 }
 
 .shortcut-table kbd {
-    display: inline-block;
-    margin: 0.15rem 0.35rem 0.15rem 0;
-    padding: 0.2rem 0.55rem;
+    display: inline;
+    margin: 0 0.35rem 0 0;
+    padding: 0;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.35;
     white-space: nowrap;
     color: var(--text-primary);
-    background-color: var(--bg-primary);
-    border: 2px solid var(--border-color);
-    border-radius: 0.35rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
 }
 
 .shortcut-footnote {
     display: block;
-    margin-top: 0.25rem;
+    margin-top: 0.15rem;
     font-size: 0.75rem;
     font-weight: 400;
     color: var(--text-secondary);
@@ -454,9 +477,38 @@ html.platform-win thead .col-mac {
     display: none;
 }
 
-html.platform-mac .col-mac,
-html.platform-win .col-win {
-    background-color: var(--bg-secondary);
+@media (max-width: 960px) {
+    .shortcut-table,
+    html.platform-both .shortcut-table {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .shortcut-table,
+    html.platform-both .shortcut-table {
+        grid-template-columns: 1fr;
+    }
+
+    html.platform-both tr.shortcut-row,
+    tr.shortcut-row {
+        grid-template-columns: 8.25rem minmax(0, 1fr);
+    }
+
+    html.platform-both tr.shortcut-row > td.col-win {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    html.platform-both tr.shortcut-row > td.col-mac {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    html.platform-both tr.shortcut-row > th {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
 }
 
 @media print {
@@ -464,9 +516,9 @@ html.platform-win .col-win {
         display: none;
     }
 
-    html.platform-mac .col-win,
-    html.platform-win .col-mac {
-        display: table-cell;
+    .shortcut-table,
+    html.platform-both .shortcut-table {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
